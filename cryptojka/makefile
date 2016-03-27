@@ -1,5 +1,5 @@
 all:
-	gcc -c cryptojka.c -o cryptojka.o
-	gcc cryptojka.o -o cryptojka
+	gcc -c main.c -o main.o
+	gcc main.o -o cryptojka
  
 
