@@ -1,7 +1,7 @@
 /*Title: cryptojka
  *Descripton: cryptation character by character
  *Autor: José Luis Garrido Labrador (JoseluCross) and Kevin Puertas Ruiz (Kprkpr)
- *Version: 0.2.0 - mar/16
+ *Version: 0.2.1 - mar/16
  */
 #include <stdio.h>
 #include <stdbool.h>
@@ -72,6 +72,7 @@ int main() {
     printf("The decrypt text is: ");
     crypt(pass, text, true);
   }
+  printf("\n");
   return 0;
 }
 
