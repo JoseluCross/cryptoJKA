@@ -1,12 +1,12 @@
 /*Title: cryptojka
  *Descripton: cryptation character by character
  *Autor: José Luis Garrido Labrador (JoseluCross) and Kevin Puertas Ruiz (Kprkpr)
- *Version: 0.2.1 - mar/16
+ *Version: 0.2.2 - mar/16
  */
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
-#include <strings.h>
+#include <string.h>
 
 #include "rangen.c"
 
