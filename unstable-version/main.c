@@ -1,7 +1,7 @@
 /*Title: cryptojka
  *Descripton: cryptation character by character
  *Autor: José Luis Garrido Labrador (JoseluCross) and Kevin Puertas Ruiz (Kprkpr)
- *Version: 0.3.0 - mar/16
+ *Version: 0.4.0 - mar/16
  */
 #include <stdio.h>
 #include <stdbool.h>
