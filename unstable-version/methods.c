@@ -13,8 +13,32 @@ void showFile(char n[],int tam){
 	printf("%s\n",f);
 }
 
+/*
+ *Title: helpbox
+ *Description: Show the help menu
+ */
 void helpbox(){
-	printf("Options:\n -f [file_name]\tinput file\n -o [file_name]\toutput file\n -p [text]\tpassword\n");
-	printf("-t [text]\ttext (not compatible with -f)\n");
-	 printf("-e\tencrypt mode\n -d\tdecrypt mode\n -r [number]\twith random generation [number of character]\n -h\tshow this box\n");
+	printf("\tOptions:\n\t -f [file_name],\tinput file\n\t -o [file_name],\toutput file\n\t -p [text],\t\tpassword\n\t");
+	printf(" -t [text],\t\ttext (not compatible with -f)\n\t");
+	 printf(" -e,\t\t\tencrypt mode\n\t -d,\t\t\tdecrypt mode\n\t -r [number],\t\twith random generation [number of character]\n\t -h,\t\t\tshow this box\n");
+}
+
+/*
+ *Title: random
+ *Description: It generates random text between ASCII 32 and 126
+ *@param tam: max length of string
+ *@param name[]: output name
+ */
+void rangen(int tam, char name[]){
+	FILE *out_text;
+
+	out_text = fopen(name, "a");
+
+	int p;//Generated num
+	int m;//Relative position
+	for(m=0;m<tam;m++){
+		p=(rand() % 95)+32; //p is between 32 and 126
+		fputc(p, out_text);
+	}
+	fclose(out_text);
 }

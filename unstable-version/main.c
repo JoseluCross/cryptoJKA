@@ -1,14 +1,13 @@
 /*Title: cryptojka
  *Descripton: cryptation character by character
  *Autor: José Luis Garrido Labrador (JoseluCross) and Kevin Puertas Ruiz (Kprkpr)
- *Version: 0.4.0 - mar/16
+ *Version: 0.3.0 - mar/16
  */
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
 
-#include "rangen.c"
 #include "methods.c"
 
 #define MAX_TEXT 1048576
@@ -25,27 +24,26 @@ int main(int argc, char *argv[]) {
   int     cant = 0;		//number of characters in random generation
   char    text[MAX_TEXT];	//imput character
   char    pass[MAX_PASS];	//Imput pass
-  char    in[35];		//input file
+  FILE   *in;			//Input file
   char    out[35];		//output file
 
   //Flags options
   int     i;
   for(i = 0; i < argc; i++) {
     if(strcmp(argv[i], "-o") == 0) {
-      strcpy(out[0], argv[i + 1]);
+      strcpy(out, argv[i + 1]);
       i++;
     }
     if(strcmp(argv[i], "-f") == 0) {
-      strcpy(in[0], argv[i + 1]);
-      fil = true;
+      in = fopen(argv[i + 1], "r");
       i++;
     }
     if(strcmp(argv[i], "-p") == 0) {
-      strcpy(pass[0], argv[i + 1]);
+      strcpy(pass, argv[i + 1]);
       i++;
     }
     if(strcmp(argv[i], "-t") == 0) {
-      strcpy(text[0], argv[i + 1]);
+      strcpy(text, argv[i + 1]);
       fil = false;
       i++;
     }
@@ -68,24 +66,21 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  FILE   *nombre;
-  nombre = fopen(in, "r");
-
   if(state == false) {
     if(fil == false) {
       crypt(pass, text, false, out);
     } else {
-      fgets(text, MAX_TEXT, nombre);
+      fgets(text, MAX_TEXT, in);
       crypt(pass, text, false, out);
     }
     if(ran == true) {
-      rangen(cant, out);	//In rangen.c
+      rangen(cant, out);	//In methods.c
     }
   } else {
     if(fil == false) {
       crypt(pass, text, true, out);
     } else {
-      fgets(text, MAX_TEXT, nombre);
+      fgets(text, MAX_TEXT, in);
       crypt(pass, text, true, out);
     }
   }
