@@ -1,6 +1,7 @@
 0.3.0
 
 Now the output is in a file too (name crypt.out);
+Bugfix: Now the program need less memory
 
 0.2.2
 
