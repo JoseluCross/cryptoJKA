@@ -1,7 +1,7 @@
 /*Title: cryptojka
  *Descripton: cryptation character by character
  *Autor: José Luis Garrido Labrador (JoseluCross) and Kevin Puertas Ruiz (Kprkpr)
- *Version: 0.2.2 - mar/16
+ *Version: 0.3.0 - mar/16
  */
 #include <stdio.h>
 #include <stdbool.h>
@@ -9,6 +9,7 @@
 #include <string.h>
 
 #include "rangen.c"
+#include "methods.c"
 
 #define MAX_TEXT 1024
 #define MAX_PASS 32
@@ -63,16 +64,18 @@ int main() {
   clean_stdin();
 
   if(state == false && ran == true) {
-    printf("The encrypt text is: ");
+    printf("The encrypt text is in crypt.out");
     random(MAX_TEXT - crypt(pass, text, false));
   } else if(state == false && ran == false) {
-    printf("The encrypt text is: ");
+    printf("The encrypt text is in crypt.out");
     crypt(pass, text, false);
   } else {
-    printf("The decrypt text is: ");
+    printf("The decrypt text is in crypt.out");
     crypt(pass, text, true);
   }
   printf("\n");
+  showFile("crypt.out", MAX_TEXT);
+
   return 0;
 }
 
@@ -91,32 +94,37 @@ int clean_stdin() {
  *@return text_length: text length
  */
 int crypt(char pass[], char text[], bool x) {
+  char    name[] = "crypt.out";	//Output file
   int     pass_length;
   int     text_length;
   int     passPosition = 0;	//Relative position in pass[]
   int     textPosition = 0;	//Relative position in text[]
   pass_length = length(pass);
   text_length = length(text);
-  int     sol[text_length];
+  int     sol;			//output character
+
+  FILE   *out;
+  out = fopen(name, "w");
 
   for(textPosition = 0; textPosition < text_length; textPosition++) {
     if(passPosition == pass_length) {
       passPosition = 0;
     }
     if(x == false) {
-      sol[textPosition] = text[textPosition] + pass[passPosition];
-      while(sol[textPosition] > 126) {
-	sol[textPosition] -= 94;
+      sol = text[textPosition] + pass[passPosition];
+      while(sol > 126) {
+	sol -= 94;
       }
     } else {
-      sol[textPosition] = text[textPosition] - pass[passPosition];
-      while(sol[textPosition] < 32) {
-	sol[textPosition] += 94;
+      sol = text[textPosition] - pass[passPosition];
+      while(sol < 32) {
+	sol += 94;
       }
     }
     passPosition++;
-    printf("%c", sol[textPosition]);
+    fputc(sol, out);
   }
+  fclose(out);
   return text_length;
 }
 

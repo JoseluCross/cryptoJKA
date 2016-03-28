@@ -1,3 +1,7 @@
+0.3.0
+
+Now the output is in a file too (name crypt.out);
+
 0.2.2
 
 HotFix: change strings.h to string.h
