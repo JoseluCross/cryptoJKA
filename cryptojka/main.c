@@ -1,7 +1,7 @@
 /*Title: cryptojka
  *Descripton: cryptation character by character
  *Autor: José Luis Garrido Labrador (JoseluCross) and Kevin Puertas Ruiz (Kprkpr)
- *Version: 0.4.0 - mar/16
+ *Version: 0.4.1 - mar/16
  */
 #include <stdio.h>
 #include <stdbool.h>
@@ -71,7 +71,14 @@ int main(int argc, char *argv[]) {
     if(fil == false) {
       crypt(pass, text, false, out);
     } else {
-      fgets(text, MAX_TEXT, in);
+      for(i = 0; feof(in) == 0; i++) {
+	text[i] = fgetc(in);
+      }
+      for(i = 0; i < length(text); i++) {
+	if(text[i] == '\n') {
+	  text[i] = ' ';
+	}
+      }
       crypt(pass, text, false, out);
     }
     if(ran == true) {
@@ -81,7 +88,14 @@ int main(int argc, char *argv[]) {
     if(fil == false) {
       crypt(pass, text, true, out);
     } else {
-      fgets(text, MAX_TEXT, in);
+      for(i = 0; feof(in) == 0; i++) {
+	text[i] = fgetc(in);
+      }
+      for(i = 0; i < length(text); i++) {
+	if(text[i] == '\n') {
+	  text[i] = ' ';
+	}
+      }
       crypt(pass, text, true, out);
     }
   }
@@ -90,12 +104,6 @@ int main(int argc, char *argv[]) {
   showFile(out, MAX_TEXT);
 
   return 0;
-}
-
-//Clean keyboard's buffer
-int clean_stdin() {
-  while(getchar() != '\n') ;
-  return 1;
 }
 
 /*
