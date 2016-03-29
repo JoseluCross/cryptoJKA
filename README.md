@@ -3,11 +3,11 @@ CryptoJKA Version 0.4.0 29/03/2016
 GENERAL USSAGE NOTES
 --------------------
 --------------------
-*1. Encrypt and decrypt raw text. 
-*2. In this version the text must be of maximum 1 MB of caracter 
-*3. The pass must be of maximum 64 characters. 
+* 1. Encrypt and decrypt raw text. 
+* 2. In this version the text must be of maximum 1 MB of caracter 
+* 3. The pass must be of maximum 64 characters. 
 
-*4. Options:
+* 4. Options:
 	1.	 -f [file_name],	input file
 	2.	 -o [file_name],	output file (default : crypt.out)
 	3.	 -p [text],		password (default: pass)
