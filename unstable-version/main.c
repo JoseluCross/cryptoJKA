@@ -10,7 +10,7 @@
 
 #include "methods.c"
 
-#define MAX_TEXT 1048576
+#define MAX_TEXT 1024
 #define MAX_PASS 64
 
 int     clean_stdin(void);
@@ -30,37 +30,23 @@ int main(int argc, char *argv[]) {
   //Flags options
   int     i;
   for(i = 0; i < argc; i++) {
-    if(strcmp(argv[i], "-o") == 0) {
-      strcpy(out, argv[i + 1]);
-      i++;
-    }
-    if(strcmp(argv[i], "-f") == 0) {
-      in = fopen(argv[i + 1], "r");
-      i++;
-    }
-    if(strcmp(argv[i], "-p") == 0) {
-      strcpy(pass, argv[i + 1]);
-      i++;
-    }
-    if(strcmp(argv[i], "-t") == 0) {
-      strcpy(text, argv[i + 1]);
-      fil = false;
-      i++;
-    }
     if(strcmp(argv[i], "-e") == 0) {
       state = false;
-      i++;
-    }
-    if(strcmp(argv[i], "-d") == 0) {
+    } else if(strcmp(argv[i], "-d") == 0) {
       state = true;
-      i++;
-    }
-    if(strcmp(argv[i], "-r") == 0) {
+    } else if(strcmp(argv[i], "-f") == 0) {
+      in = fopen(argv[i + 1], "r");
+    } else if(strcmp(argv[i], "-o") == 0) {
+      strcpy(out, argv[i + 1]);
+    } else if(strcmp(argv[i], "-p") == 0) {
+      strcpy(pass, argv[i + 1]);
+    } else if(strcmp(argv[i], "-t") == 0) {
+      strcpy(text, argv[i + 1]);
+      fil = false;
+    } else if(strcmp(argv[i], "-r") == 0) {
       ran = true;
       cant = atoi(argv[i + 1]);
-      i++;
-    }
-    if(strcmp(argv[i], "-h") == 0) {
+    } else if(strcmp(argv[i], "-h") == 0) {
       helpbox();		//In methods.c
       return 0;
     }
