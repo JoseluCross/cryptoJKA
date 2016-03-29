@@ -18,9 +18,9 @@ void showFile(char n[],int tam){
  *Description: Show the help menu
  */
 void helpbox(){
-	printf("\tOptions:\n\t -f [file_name],\tinput file\n\t -o [file_name],\toutput file\n\t -p [text],\t\tpassword\n\t");
-	printf(" -t [text],\t\ttext (not compatible with -f)\n\t");
-	 printf(" -e,\t\t\tencrypt mode\n\t -d,\t\t\tdecrypt mode\n\t -r [number],\t\twith random generation [number of character]\n\t -h,\t\t\tshow this box\n");
+	printf("\tOptions:\n\t -f [file_name],\tinput file\n\t -o [file_name],\toutput file (default : crypt.out)\n\t -p [text],\t\tpassword (default: pass)\n\t");
+	printf(" -t [text],\t\ttext (default: text)\n\t\t\t\t\tIf you put -f and -t, text have preference\n\t");
+	printf(" -e,\t\t\tencrypt mode\n\t -d,\t\t\tdecrypt mode\n\t -r [number],\t\twith random generation [number of character]\n\t -h,\t\t\tshow this box\n");
 }
 
 /*

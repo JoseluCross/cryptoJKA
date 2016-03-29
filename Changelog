@@ -1,3 +1,9 @@
+0.4.0
+
+Add flags menu
+Remove option menu
+Now can encrypt file (raw text)
+
 0.3.0
 
 Now the output is in a file too (name crypt.out);

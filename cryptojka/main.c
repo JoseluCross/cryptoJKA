@@ -1,80 +1,93 @@
 /*Title: cryptojka
  *Descripton: cryptation character by character
  *Autor: José Luis Garrido Labrador (JoseluCross) and Kevin Puertas Ruiz (Kprkpr)
- *Version: 0.3.0 - mar/16
+ *Version: 0.4.0 - mar/16
  */
 #include <stdio.h>
 #include <stdbool.h>
-#include <math.h>
 #include <string.h>
+#include <stdlib.h>
 
-#include "rangen.c"
 #include "methods.c"
 
-#define MAX_TEXT 1024
-#define MAX_PASS 32
+#define MAX_TEXT 1048576
+#define MAX_PASS 64
 
 int     clean_stdin(void);
-int     crypt(char[], char[], bool);
+void    crypt(char[], char[], bool, char[]);
 int     length(char[]);
 
-int main() {
-  int     mode = 2;
-  bool    state;		//false when encrypt, true when desencrypt
-  bool    ran;			//false: not random generation, true: random generation
-  char    c;			//control character 
-  char    text[MAX_TEXT];	//imput character
-  char    pass[MAX_PASS];	//Imput pass
+int main(int argc, char *argv[]) {
+  bool    state;		//false when encrypt, true when decrypt
+  bool    ran = true;		//false: not random generation, true: random generation
+  bool    fil;			//false: not file, true, with file
+  bool    cond = false;		//If false = not argument
+  int     cant = 0;		//number of characters in random generation
+  char    text[MAX_TEXT] = "text";	//imput character
+  char    pass[MAX_PASS] = "pass";	//Imput pass
+  FILE   *in;			//Input file
+  char    out[35] = "crypt.out";	//output file
 
-  //Mode menu
-  do {
-    printf("Choose, 0 = encrypt, 1 = decrypt: ");
-    if(scanf("%d%c", &mode, &c) != 2 || c != '\n') {
-      printf("Incorrect value\n");
-      clean_stdin();
-      mode = 2;
+  //Flags options
+  int     i;
+  for(i = 0; i < argc; i++) {
+    if(strcmp(argv[i], "-e") == 0) {
+      state = false;
+      cond = true;
+    } else if(strcmp(argv[i], "-d") == 0) {
+      state = true;
+      cond = true;
+    } else if(strcmp(argv[i], "-f") == 0) {
+      in = fopen(argv[i + 1], "r");
+      fil = true;
+      cond = true;
+    } else if(strcmp(argv[i], "-o") == 0) {
+      strcpy(out, argv[i + 1]);
+      cond = true;
+    } else if(strcmp(argv[i], "-p") == 0) {
+      strcpy(pass, argv[i + 1]);
+      cond = true;
+    } else if(strcmp(argv[i], "-t") == 0) {
+      strcpy(text, argv[i + 1]);
+      fil = false;
+      cond = true;
+    } else if(strcmp(argv[i], "-r") == 0) {
+      ran = true;
+      cant = atoi(argv[i + 1]);
+      cond = true;
+    } else if(strcmp(argv[i], "-h") == 0) {
+      helpbox();		//In methods.c
+      return 0;
     }
-  } while(mode != 0 && mode != 1);
-  state = mode;
-  //Random generation menu
+  }
+
+  if(cond == false) {
+    printf("No option specified\n");
+    helpbox();
+    return 0;
+  }
+
   if(state == false) {
-    mode = 2;
-    do {
-      printf
-	  ("If you want generation of random text type 1, else type 0: ");
-      if(scanf("%d%c", &mode, &c) != 2 || c != '\n') {
-	printf("Incorrect option\n");
-	clean_stdin();
-	mode = 2;
-      }
-    } while(mode != 0 && mode != 1);
-    ran = mode;
-  }
-
-  printf("Input text (only ASCII): ");
-  fgets(text, MAX_TEXT, stdin);
-  if(text[strlen(text)] == '\n') ;
-  text[strlen(text)] = '\0';
-  clean_stdin();
-
-  printf("Input password: ");
-  fgets(pass, MAX_PASS, stdin);
-  if(pass[strlen(pass)] == '\n') ;
-  pass[strlen(pass)] = '\0';
-  clean_stdin();
-
-  if(state == false && ran == true) {
-    printf("The encrypt text is in crypt.out");
-    random(MAX_TEXT - crypt(pass, text, false));
-  } else if(state == false && ran == false) {
-    printf("The encrypt text is in crypt.out");
-    crypt(pass, text, false);
+    if(fil == false) {
+      crypt(pass, text, false, out);
+    } else {
+      fgets(text, MAX_TEXT, in);
+      crypt(pass, text, false, out);
+    }
+    if(ran == true) {
+      rangen(cant, out);	//In methods.c
+    }
   } else {
-    printf("The decrypt text is in crypt.out");
-    crypt(pass, text, true);
+    if(fil == false) {
+      crypt(pass, text, true, out);
+    } else {
+      fgets(text, MAX_TEXT, in);
+      crypt(pass, text, true, out);
+    }
   }
+
   printf("\n");
-  showFile("crypt.out", MAX_TEXT);
+  showFile(out, MAX_TEXT);
 
   return 0;
 }
@@ -91,10 +104,10 @@ int clean_stdin() {
  *@param pass[]: string which we use like password
  *@param text[]: string which we will encrypt
  *@param x: false = encrypt, true = decrypt
+ *@param name[]: name of output
  *@return text_length: text length
  */
-int crypt(char pass[], char text[], bool x) {
-  char    name[] = "crypt.out";	//Output file
+void crypt(char pass[], char text[], bool x, char name[]) {
   int     pass_length;
   int     text_length;
   int     passPosition = 0;	//Relative position in pass[]
@@ -103,8 +116,9 @@ int crypt(char pass[], char text[], bool x) {
   text_length = length(text);
   int     sol;			//output character
 
-  FILE   *out;
-  out = fopen(name, "w");
+  FILE   *nom;
+
+  nom = fopen(name, "w");
 
   for(textPosition = 0; textPosition < text_length; textPosition++) {
     if(passPosition == pass_length) {
@@ -122,10 +136,9 @@ int crypt(char pass[], char text[], bool x) {
       }
     }
     passPosition++;
-    fputc(sol, out);
+    fputc(sol, nom);
   }
-  fclose(out);
-  return text_length;
+  fclose(nom);
 }
 
 /*
