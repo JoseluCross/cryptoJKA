@@ -12,7 +12,7 @@ GENERAL USSAGE NOTES
 	*	 -o [file_name],	output file (default : crypt.out)
 	*	 -p [text],		password (default: pass)
 	*	 -t [text],		text (default: text)
-	    *					If you put -f and -t, text have preference
+						If you put -f and -t, text have preference
 	*	 -e,			encrypt mode
 	*	 -d,			decrypt mode
 	*	 -r [number],		with random generation [number of character]
