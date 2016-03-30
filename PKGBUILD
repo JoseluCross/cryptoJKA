@@ -2,7 +2,7 @@
 #PKGBUILD mantainer: JoseluCross, kprkpr
 
 pkgname=cryptojka
-pkgver=0.4.3
+pkgver=
 pkgrel=1
 pkgdesc="de/encryption character by character"
 arch=('i686' 'x86_64')

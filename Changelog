@@ -1,3 +1,7 @@
+0.4.3
+
+Bugfix: the random generation are now different in each execution
+
 0.4.2
 
 Add examples in help box
@@ -28,7 +32,7 @@ HotFix: Its included an intro at the end of printing
 
 0.2.0
 
-New functionality: random num generation
+New functionality: random number generation
 1023 character to text
 31 character to password
 

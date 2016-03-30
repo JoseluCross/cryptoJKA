@@ -1,5 +1,6 @@
 #include "data.h"
 
+
 /*
  *Title: showFile
  *Description: Print in screen a file
@@ -32,7 +33,7 @@ void helpbox(){
 	printf("\t -e,\t\t\tencrypt mode\n");
 	printf("\t -d,\t\t\tdecrypt mode\n");
 	printf("\t -r [number],\t\twith random generation [number of character]\n");
-	printf("\t -h,\t\t\tshow this box\n");
+	printf("\t -h, --help\t\tshow this box\n");
 	printf("\t -v, --version,\t\tshow version\n\n");
 	printf("\t Examples:\n\n");
 	printf("\t\tcryptojka -e -t \"Example text\" -p password -o file_name -r 600\n");
@@ -46,10 +47,11 @@ void helpbox(){
  *@param name[]: output name
  */
 void rangen(int tam, char name[]){
+  srand((unsigned int) time(NULL));//Random generation
+
 	FILE *out_text;
 
 	out_text = fopen(name, "a");
-
 	int p;//Generated num
 	int m;//Relative position
 	for(m=0;m<tam;m++){
