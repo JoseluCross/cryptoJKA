@@ -1,3 +1,8 @@
+0.4.2
+
+Add examples in help box
+Add new arguments (-v/--version)
+
 0.4.1
 
 Hotfix: Now the carriage return in a file is read (convert to space)

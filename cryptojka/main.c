@@ -1,17 +1,15 @@
 /*Title: cryptojka
  *Descripton: cryptation character by character
  *Autor: José Luis Garrido Labrador (JoseluCross) and Kevin Puertas Ruiz (Kprkpr)
- *Version: 0.4.1 - mar/16
+ *Version: 0.4.2 - mar/16
  */
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
+#include "data.h"
 
 #include "methods.c"
-
-#define MAX_TEXT 1048576
-#define MAX_PASS 64
 
 int     clean_stdin(void);
 void    crypt(char[], char[], bool, char[]);
@@ -19,7 +17,7 @@ int     length(char[]);
 
 int main(int argc, char *argv[]) {
   bool    state;		//false when encrypt, true when decrypt
-  bool    ran = true;		//false: not random generation, true: random generation
+  bool    ran = false;		//false: not random generation, true: random generation
   bool    fil;			//false: not file, true, with file
   bool    cond = false;		//If false = not argument
   int     cant = 0;		//number of characters in random generation
@@ -55,6 +53,10 @@ int main(int argc, char *argv[]) {
       ran = true;
       cant = atoi(argv[i + 1]);
       cond = true;
+    } else if(strcmp(argv[i], "--version") == 0
+	      || strcmp(argv[i], "-v") == 0) {
+      printf("cryptoJKA, version: %s\n\n", VERSION);
+      return 0;
     } else if(strcmp(argv[i], "-h") == 0) {
       helpbox();		//In methods.c
       return 0;
@@ -91,13 +93,9 @@ int main(int argc, char *argv[]) {
       for(i = 0; feof(in) == 0; i++) {
 	text[i] = fgetc(in);
       }
-      for(i = 0; i < length(text); i++) {
-	if(text[i] == '\n') {
-	  text[i] = ' ';
-	}
-      }
-      crypt(pass, text, true, out);
+
     }
+    crypt(pass, text, true, out);
   }
 
   printf("\n");

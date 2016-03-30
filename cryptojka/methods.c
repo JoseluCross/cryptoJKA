@@ -1,3 +1,5 @@
+#include "data.h"
+
 /*
  *Title: showFile
  *Description: Print in screen a file
@@ -18,9 +20,23 @@ void showFile(char n[],int tam){
  *Description: Show the help menu
  */
 void helpbox(){
-	printf("\tOptions:\n\t -f [file_name],\tinput file\n\t -o [file_name],\toutput file (default : crypt.out)\n\t -p [text],\t\tpassword (default: pass)\n\t");
-	printf(" -t [text],\t\ttext (default: text)\n\t\t\t\t\tIf you put -f and -t, text have preference\n\t");
-	printf(" -e,\t\t\tencrypt mode\n\t -d,\t\t\tdecrypt mode\n\t -r [number],\t\twith random generation [number of character]\n\t -h,\t\t\tshow this box\n");
+	printf("\n");
+	printf("\tcryptoJKA from JKA Network - Version: %s\n", VERSION);
+	printf("\n");
+	printf("\tThe text must be between ASCII 32 and ASCII 125\n\n");
+	printf("\tOptions:\n");
+	printf("\t -f [file_name],\tinput file\n");
+	printf("\t -o [file_name],\toutput file (default : crypt.out)\n");
+	printf("\t -p [text],\t\tpassword (default: pass)\n");
+	printf("\t -t [text],\t\ttext (default: text)\n\t\t\t\t\tIf you put -f and -t, text have preference\n");
+	printf("\t -e,\t\t\tencrypt mode\n");
+	printf("\t -d,\t\t\tdecrypt mode\n");
+	printf("\t -r [number],\t\twith random generation [number of character]\n");
+	printf("\t -h,\t\t\tshow this box\n");
+	printf("\t -v, --version,\t\tshow version\n\n");
+	printf("\t Examples:\n\n");
+	printf("\t\tcryptojka -e -t \"Example text\" -p password -o file_name -r 600\n");
+	printf("\t\tcryptojka -d -f file_name -p password\n\n");
 }
 
 /*
