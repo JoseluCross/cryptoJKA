@@ -1,8 +1,0 @@
-Package: cryptojka
-Priority: optional
-Section: misc
-Maintainer: JoseluCross
-Architecture: amd64
-Version: 0.4.2
-Depends:
-Description: Cryptation character by character
