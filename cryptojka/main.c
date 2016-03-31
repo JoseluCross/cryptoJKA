@@ -7,7 +7,6 @@
 
 #include "crypt.c"
 #include "methods.c"
-#include "functions.c"
 
 int main(int argc, char *argv[]) {
   bool    state;		//false when encrypt, true when decrypt
