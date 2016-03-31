@@ -1,3 +1,7 @@
+0.4.4
+
+Hotfix: Now encryption and decryption works
+
 0.4.3
 
 Bugfix: the random generation are now different in each execution

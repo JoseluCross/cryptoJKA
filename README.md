@@ -1,4 +1,4 @@
-### CryptoJKA Version 0.4.3 31/03/2016
+### CryptoJKA Version 0.4.4 31/03/2016
 
 GENERAL USAGE NOTES
 --------------------

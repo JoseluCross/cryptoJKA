@@ -1,12 +1,13 @@
 /*Title: cryptojka
 *Descripton: cryptation character by character
 *Autor: José Luis Garrido Labrador (JoseluCross) and Kevin Puertas Ruiz (Kprkpr)
-*Version: 0.4.3 - mar/16
+*Version: 0.4.4 - mar/16
 */
 #include "data.h"
 
 #include "crypt.c"
 #include "methods.c"
+#include "functions.c"
 
 int main(int argc, char *argv[]) {
   bool    state;		//false when encrypt, true when decrypt
@@ -66,22 +67,23 @@ int main(int argc, char *argv[]) {
   if(state == false) {
     if(fil == false) {
 
-    }
-    crypt(pass, text, false, out);
-  } else {
-    for(i = 0; feof(in) == 0; i++) {
-      c = fgetc(in);
-      if(c == '\n') {
-	text[i] = ' ';
-      } else {
-	text[i] = c;
+      crypt(pass, text, false, out);
+    } else {
+      for(i = 0; feof(in) == 0; i++) {
+	c = fgetc(in);
+	if(c == '\n') {
+	  text[i] = ' ';
+	} else {
+	  text[i] = c;
+	}
       }
+
+      crypt(pass, text, false, out);
+    }
+    if(ran == true) {
+      rangen(cant, out);	//In methods.c
     }
 
-    crypt(pass, text, false, out);
-  }
-  if(ran == true) {
-    rangen(cant, out);		//In methods.c
   } else {
     if(fil == false) {
       crypt(pass, text, true, out);
@@ -89,9 +91,8 @@ int main(int argc, char *argv[]) {
       for(i = 0; feof(in) == 0; i++) {
 	text[i] = fgetc(in);
       }
-
+      crypt(pass, text, true, out);
     }
-    crypt(pass, text, true, out);
   }
 
   printf("\n");
