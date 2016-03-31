@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
       cond = true;
     } else if(strcmp(argv[i], "--version") == 0
 	      || strcmp(argv[i], "-v") == 0) {
-      printf("cryptoJKA, version: %s\n\n", VERSION);
+      printf(gettext("cryptoJKA, version: %s\n\n"), VERSION);
       return 0;
     } else if(strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
       helpbox();		//In methods.c
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
   }
 
   if(cond == false) {
-    printf("No option specified\n");
+    printf(gettext("No option specified\n"));
     helpbox();
     return 0;
   }

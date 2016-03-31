@@ -1,0 +1,134 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cryptojka-1.0.0\n"
+"POT-Creation-Date: 2016-03-31 18:39+0200\n"
+"PO-Revision-Date: 2016-03-31 18:41+0200\n"
+"Last-Translator: JoseluCross <jlgarrido97@gmail.com>\n"
+"Language-Team: JKA Network <contacto@gmail.com>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: .gettext\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: main.c:52
+#, c-format
+msgid ""
+"cryptoJKA, version: %s\n"
+"\n"
+msgstr ""
+"cryptoJKA, versión: %s\n"
+"\n"
+
+#: main.c:61
+#, c-format
+msgid "No option specified\n"
+msgstr "Ninguna opción especificada\n"
+
+#: methods.c:25
+#, c-format
+msgid "\tcryptoJKA from JKA Network - Version: %s\n"
+msgstr "\tcryptoJKA de JKA Network - Versión %s\n"
+
+#: methods.c:27
+#, c-format
+msgid ""
+"\tThe text must be between ASCII 32 and ASCII 126\n"
+"\n"
+msgstr ""
+"\tEl texto solo soporta los caracteres entre ASCII 32 y ASCII 126\n"
+"\n"
+
+#: methods.c:28
+#, c-format
+msgid "\tOptions:\n"
+msgstr "\tOpciones:\n"
+
+#: methods.c:29
+#, c-format
+msgid "\t -f [file_name],\tinput file\n"
+msgstr "\t -f [nombre de archivo],\t archivo de entrada\n"
+
+#: methods.c:30
+#, c-format
+msgid "\t -o [file_name],\toutput file (default : crypt.out)\n"
+msgstr "\t -o [nombre de archivo],\tarchivo de salida (por defecto: crypt.out)\n"
+
+#: methods.c:31
+#, c-format
+msgid "\t -p [text],\t\tpassword (default: pass)\n"
+msgstr "\t -p [texto],\t\tcontraseña (por defecto: pass)\n"
+
+#: methods.c:32
+#, c-format
+msgid ""
+"\t -t [text],\t\ttext (default: text)\n"
+"\t\t\t\t\tIf you put -f and -t, text have preference\n"
+msgstr ""
+"\t -t [texto],\t\ttexto (por defecto: text)\n"
+"\t\t\t\t\tSi pones -f y -t, el texto tiene preferencia\n"
+
+#: methods.c:33
+#, c-format
+msgid "\t -e,\t\t\tencrypt mode\n"
+msgstr "\t -e,\t\t\tmodo cifrar\n"
+
+#: methods.c:34
+#, c-format
+msgid "\t -d,\t\t\tdecrypt mode\n"
+msgstr "\t -d,\t\t\tmodo descifrar\n"
+
+#: methods.c:35
+#, c-format
+msgid "\t -r [number],\t\twith random generation [number of character]\n"
+msgstr "\t -r [número],\t\tcon generación de aleatoria [número de caracteres]\n"
+
+#: methods.c:36
+#, c-format
+msgid "\t -h, --help\t\tshow this box\n"
+msgstr "\t -h, --help\t\tmuestra la ayuda\n"
+
+#: methods.c:37
+#, c-format
+msgid ""
+"\t -v, --version,\t\tshow version\n"
+"\n"
+msgstr ""
+"\t -v, --version,\t\tmuestra la versión\n"
+"\n"
+
+#: methods.c:38
+#, c-format
+msgid ""
+"\t Examples:\n"
+"\n"
+msgstr ""
+"\t Ejemplos:\n"
+"\n"
+
+#: methods.c:39
+#, c-format
+msgid "\t\tcryptojka -e -t \"Example text\" -p password -o file_name -r 600\n"
+msgstr "\t\tcryptojka -e -t \"Texto de ejemplo\" -p contraseña -o nombre_de_archivo -r 600\n"
+
+#: methods.c:40
+#, c-format
+msgid ""
+"\t\tcryptojka -d -f file_name -p password\n"
+"\n"
+msgstr ""
+"\t\tcryptojka -d -f nombre_de_archivo -p contraseña\n"
+"\n"
+
+#~ msgid ""
+#~ "\tThe text must be between ASCII 32 and ASCII 126\n"
+#~ "\n"
+#~ ")"
+#~ msgstr ""
+#~ "\tEl texto solo soporta los caracteres entre ASCII 32 y ASCII 126\n"
+#~ "\n"
