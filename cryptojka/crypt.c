@@ -1,4 +1,6 @@
 #include "data.h"
+
+
 /*
  *Title: crypt
  *Description: It de/encrypt strings
@@ -8,6 +10,7 @@
  *@param name[]: name of output
  */
 void crypt(char pass[], char *text, bool x, char name[]) {
+  int     i;//Loop number
   int     pass_length;
   int     text_length;
   int     passPosition = 0;	//Relative position in pass[]
@@ -23,6 +26,12 @@ void crypt(char pass[], char *text, bool x, char name[]) {
   for(textPosition = 0; textPosition < text_length; textPosition++) {
     if(passPosition == pass_length) {
       passPosition = 0;
+      for(i=0;i<pass_length;i++){
+        pass[i]++;
+        if(pass[i]>126){
+          pass[i]-=94;
+        }
+      }
     }
     if(x == false) {
       sol = *text + pass[passPosition];

@@ -1,9 +1,10 @@
-### CryptoJKA Version 0.4.4 31/03/2016
+### CryptoJKA Version 0.4.5 31/03/2016
 
 GENERAL USAGE NOTES
 --------------------
 --------------------
 * Encrypt and decrypt raw text using expand Vigenere (with ASCII)
+*	The password change during the execution for each set of characters in input text
 * In this version the text must be of maximum 1 MB of character
 * The pass must be of maximum 64 characters.
 
