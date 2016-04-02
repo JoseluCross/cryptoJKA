@@ -13,16 +13,16 @@ GENERAL USAGE NOTES
 	* The text must be between ASCII 32 and ASCII 126
 
 	* Options:
-	 * -f [file_name],&emsp;&emsp;input file
-	 * -o [file_name],&emsp;&emsp;output file (default : crypt.out)
-	 * -p [text],&emsp;&emsp;password (default: pass)
-	 * -t [text],&emsp;&emsp;text (default: text)
-		&emsp;&emsp;&emsp;If you put -f and -t, text have preference
-	 * -e,&emsp;&emsp;encrypt mode
-	 * -d,&emsp;&emsp;decrypt mode
-	 * -r [number],&emsp;&emsp;with random generation [number of character]
-	 * -h, --help,&emsp;&emsp;show this box
-	 * -v, --version,&emsp;&emsp;show version
+	 * -f [file_name]		input file
+	 * -o [file_name]		output file (default : crypt.out)
+	 * -p [text]				password (default: pass)
+	 * -t [text]				text (default: text)
+	 												If you put -f and -t, text have preference
+	 * -e								encrypt mode
+	 * -d								decrypt mode
+	 * -r [number]			with random generation [number of character]
+	 * -h, --help				show this box
+	 * -v, --version		show version
 
 	 * Examples:
 
