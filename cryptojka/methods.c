@@ -24,7 +24,7 @@ void helpbox(){
 	printf("\n");
 	printf("\tcryptoJKA from JKA Network - Version: %s\n", VERSION);
 	printf("\n");
-	printf("\tThe text must be between ASCII 32 and ASCII 125z\n\n");
+	printf("\tThe text must be between ASCII 32 and ASCII 126\n\n");
 	printf("\tOptions:\n");
 	printf("\t -f [file_name]\tinput file\n");
 	printf("\t -o [file_name]\toutput file (default : crypt.out)\n");

@@ -1,7 +1,7 @@
 /*Title: cryptojka
 *Descripton: cryptation character by character
 *Autor: José Luis Garrido Labrador (JoseluCross) and Kevin Puertas Ruiz (Kprkpr)
-*Version: 0.4.6 - apr/16
+*Version: 0.4.7 - apr/16
 */
 #include "data.h"
 
