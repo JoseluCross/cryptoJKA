@@ -1,4 +1,4 @@
-### CryptoJKA Version 0.4.8 16/04/2016
+### CryptoJKA Version 0.4.9 17/04/2016
 
 GENERAL USAGE NOTES
 --------------------
@@ -8,7 +8,7 @@ GENERAL USAGE NOTES
 * In this version the text must be of maximum 1 MB of character
 * The pass must be of maximum 64 characters.
 
-* cryptoJKA from JKA Network - Version: 0.4.8
+* cryptoJKA from JKA Network - Version: 0.4.9
 
 	* The text must be between ASCII 32 and ASCII 126
 
