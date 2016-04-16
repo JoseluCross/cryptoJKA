@@ -1,6 +1,5 @@
 #include "data.h"
 
-
 /*
 *Title: crypt
 *Description: It de/encrypt strings

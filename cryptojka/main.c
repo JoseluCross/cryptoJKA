@@ -7,7 +7,6 @@
 
 #include "crypt.c"
 #include "methods.c"
-//#include "functions.c"
 
 int main(int argc, char *argv[]) {
   bool    state;		//false when encrypt, true when decrypt
@@ -70,21 +69,13 @@ int main(int argc, char *argv[]) {
   if(state == false) {
     if(fil == false) {
       for(i = 0; text[i]!='\0'; i++){
-        /*if(text[i] == ' ') {
-          text[i] = ranSpace(); //In functions.c
-        }
-        unlessRandom();*/
-      }
       crypt(pass, text, state, out, v);
     } else {
       for(i = 0; feof(in) == 0; i++) {
         text[i] = fgetc(in);
-        /*if(text[i] == ' ') {
-          text[i] = ranSpace(); //In functions.c
-        }else */if(text[i] == '\n') {
+       if(text[i] == '\n') {
           text[i] = ' ';
         }
-        //unlessRandom();
       }
 
       crypt(pass, text, false, out, v);
