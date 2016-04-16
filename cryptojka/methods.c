@@ -48,9 +48,7 @@ void helpbox(){
  *@param name[]: output name
  */
 void rangen(int tam, char name[]){
-  srand((unsigned int) time(NULL));//Random generation
-
-	FILE *out_text;
+  FILE *out_text;
 
 	out_text = fopen(name, "a");
 	int p;//Generated num
@@ -61,3 +59,14 @@ void rangen(int tam, char name[]){
 	}
 	fclose(out_text);
 }
+/*
+ *Title: unlessRandom
+ *Description: It generates random numbers
+ *
+void unlessRandom(){
+  int i;
+	for(i=0;i<100;i++){
+		rand();
+	}
+}
+*/

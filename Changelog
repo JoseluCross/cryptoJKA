@@ -1,3 +1,7 @@
+0.4.8
+
+Bugfix: an extra character in desencryptation has been removed
+
 0.4.7
 
 Correct some text in the program
