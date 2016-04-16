@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
     if(fil == false) {
       for(i = 0; text[i]!='\0'; i++){
       crypt(pass, text, state, out, v);
-    } else {
+    }       
       for(i = 0; feof(in) == 0; i++) {
         text[i] = fgetc(in);
        if(text[i] == '\n') {
