@@ -47,10 +47,11 @@ void crypt(char pass[], char *text, bool x, char name[], bool version) {
       }
     }
     passPosition++;
-    if(*text!=0){
+    if(*text!='\0'){
       fputc(sol, nom);
+          text++;
     }
-    text++;
+
   }
   fclose(nom);
 }
