@@ -11,4 +11,4 @@
 
 #define MAX_TEXT 1048576
 #define MAX_PASS 64
-#define VERSION "0.4.11"
+#define VERSION "0.4.12"

@@ -1,7 +1,7 @@
 /*Title: cryptojka
 *Descripton: cryptation character by character
 *Autor: José Luis Garrido Labrador (JoseluCross) and Kevin Puertas Ruiz (Kprkpr)
-*Version: 0.4.11 - apr/16
+*Version: 0.4.12 - apr/16
 */
 #include "data.h"
 
@@ -74,9 +74,8 @@ int main(int argc, char *argv[]) {
   //crypt methods is in crypt.c
   if(state == false) {
     if(fil == false) {
-      for(i = 0; text[i]!='\0'; i++){
       crypt(pass, text, state, out, v);
-    }
+    }else{    
       for(i = 0; feof(in) == 0; i++) {
         text[i] = fgetc(in);
        if(text[i] == '\n') {
