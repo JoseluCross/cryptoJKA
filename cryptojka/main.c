@@ -1,7 +1,7 @@
 /*Title: cryptojka
 *Descripton: cryptation character by character
 *Autor: José Luis Garrido Labrador (JoseluCross) and Kevin Puertas Ruiz (Kprkpr)
-*Version: 0.4.10 - apr/16
+*Version: 0.4.11 - apr/16
 */
 #include "data.h"
 
@@ -17,10 +17,15 @@ int main(int argc, char *argv[]) {
   int     cant = 0;		//number of characters in random generation
   char    text[MAX_TEXT] = "text";	//imput character
   char    pass[MAX_PASS] = "pass";	//Imput pass
-  char    c;			//swap variable
   FILE   *in;			//Input file
   char    out[35] = "crypt.out";	//output file
-  srand((unsigned int)time(NULL));
+  srand((unsigned int) time(NULL));
+  
+  //Set locales
+  bind_textdomain_codeset ("cryptojka", "UTF-8");
+  setlocale(LC_ALL, "");
+  textdomain("cryptojka");
+  bindtextdomain("cryptojka", "/usr/share/cryptojka/i18n" );
 
   //Flags options
   int     i;
@@ -50,8 +55,8 @@ int main(int argc, char *argv[]) {
       cant = atoi(argv[i + 1]);
       cond = true;
     } else if(strcmp(argv[i], "--version") == 0
-	      || strcmp(argv[i], "-v") == 0) {
-      printf("cryptoJKA, version: %s\n\n", VERSION);
+    || strcmp(argv[i], "-v") == 0) {
+      printf(gettext("cryptoJKA, version: %s\n\n"), VERSION);
       return 0;
     } else if(strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
       helpbox();		//In methods.c
@@ -62,21 +67,21 @@ int main(int argc, char *argv[]) {
   }
 
   if(cond == false) {
-    printf("No option specified\n");
-    printf("Use cryptojka --help\n\n");
+    printf(gettext("No option specified\n"));
+    printf(gettext("Use cryptojka --help\n\n"));
     return 0;
   }
   //crypt methods is in crypt.c
   if(state == false) {
     if(fil == false) {
+      for(i = 0; text[i]!='\0'; i++){
       crypt(pass, text, state, out, v);
-    } else {
+    }
       for(i = 0; feof(in) == 0; i++) {
-	c = fgetc(in);
-	if(c == '\n') {
-	  c = ' ';
-	}
-	text[i] = c;
+        text[i] = fgetc(in);
+       if(text[i] == '\n') {
+          text[i] = ' ';
+        }
       }
 
       crypt(pass, text, false, out, v);
@@ -85,14 +90,12 @@ int main(int argc, char *argv[]) {
       rangen(cant, out);	//In methods.c
     }
 
-  }
-
-  else {
+  } else {
     if(fil == false) {
       crypt(pass, text, true, out, v);
     } else {
       for(i = 0; feof(in) == 0; i++) {
-	text[i] = fgetc(in);
+        text[i] = fgetc(in);
       }
       crypt(pass, text, true, out, v);
     }
