@@ -1,22 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Spanish translations for PACKAGE package.
+# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# José Luis <contacto@jkanetwork.com>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 00:31+0200\n"
-"PO-Revision-Date: 2016-04-19 00:33+0200\n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"POT-Creation-Date: 2016-04-18 21:08+0200\n"
+"PO-Revision-Date: 2016-04-18 21:11+0200\n"
 "Last-Translator: JoseluCross <jlgarrido97@gmail.com>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language-Team: Spanish\n"
 "Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: main.c:53
 #, c-format
@@ -24,13 +24,13 @@ msgid ""
 "cryptoJKA, version: %s\n"
 "\n"
 msgstr ""
-"cryptoJKA, versión: %s\n"
+"cryptoJKA, version: %s\n"
 "\n"
 
 #: main.c:64
 #, c-format
 msgid "No option specified\n"
-msgstr "Ninguna opción seleccionada\n"
+msgstr "Ninguna opcion seleccionada\n"
 
 #: main.c:65
 #, c-format
@@ -44,7 +44,7 @@ msgstr ""
 #: methods.c:25
 #, c-format
 msgid "\tcryptoJKA from JKA Network - Version: %s\n"
-msgstr "\tcryptoJKA de JKA Network - Versión: %s\n"
+msgstr "\tcryptoJKA de JKA Network - Version: %s\n"
 
 #: methods.c:27
 #, c-format
@@ -71,7 +71,7 @@ msgstr "\t -o [nombre del archivo]\tfichero de salida (por defecto: crypt.out)\n
 #: methods.c:31
 #, c-format
 msgid "\t -p [text]\t\tpassword (default: pass)\n"
-msgstr "\t -p [texto]\t\tcontraseña (por defecto: pass)\n"
+msgstr "\t -p [texto]\t\tcontra (por defecto: pass)\n"
 
 #: methods.c:32
 #, c-format
@@ -96,7 +96,7 @@ msgstr "\t -d\t\t\tmodo descifrar\n"
 #: methods.c:35
 #, c-format
 msgid "\t -r [number]\t\twith random generation [number of character]\n"
-msgstr "\t -r [número]\t\tcon generación aleatorio de texto [número de caracteres]\n"
+msgstr "\t -r [numero]\t\tcon generacion aleatoria de texto [numero de caracteres]\n"
 
 #: methods.c:36
 #, c-format
@@ -114,7 +114,7 @@ msgid ""
 "\t -v, --version\t\tshow version\n"
 "\n"
 msgstr ""
-"\t -v, --versión\t\tmuestra la versión\n"
+"\t -v, --version\t\tmuestra la version\n"
 "\n"
 
 #: methods.c:39
@@ -129,7 +129,7 @@ msgstr ""
 #: methods.c:40
 #, c-format
 msgid "\t\tcryptojka -e -t \"Example text\" -p password -o file_name -r 600\n"
-msgstr "\t\tcryptojka -e -t \"Texto de ejemplo\" -p contraseña -o nombre_de_archivo -r 600\n"
+msgstr "\t\tcryptojka -e -t \"Texto de ejemplo\" -p contra -o nombre_de_archivo -r 600\n"
 
 #: methods.c:41
 #, c-format
@@ -137,5 +137,5 @@ msgid ""
 "\t\tcryptojka -d -f file_name -p password\n"
 "\n"
 msgstr ""
-"\t\tcryptojka -d -f nombre_de_archivo -p contraseña\n"
+"\t\tcryptojka -d -f nombre_de_archivo -p contra\n"
 "\n"

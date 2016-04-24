@@ -1,14 +1,15 @@
-### CryptoJKA Version 0.4.12 18/04/2016
+### CryptoJKA Version 0.5.0 15/03/2016
 
 GENERAL USAGE NOTES
 --------------------
 --------------------
 * Encrypt and decrypt raw text using expand Vigenere (with ASCII)
 *	The password change during the execution for each set of characters in input text
+*	The space change for a point(.), a dash(-), a underscore(_), a tilde (~) or a space( ) randomly
 * In this version the text must be of maximum 1 MB of character
 * The pass must be of maximum 64 characters.
 
-* cryptoJKA from JKA Network - Version: 0.4.11
+* cryptoJKA from JKA Network - Version: 0.5.0
 
 	* The text must be between ASCII 32 and ASCII 126
 
@@ -17,7 +18,7 @@ GENERAL USAGE NOTES
 	 * -o [file_name]		    output file (default : crypt.out)
 	 * -p [text]				    password (default: pass)
 	 * -t [text]				    text (default: text)
-	 												    If you put -f and -t, text have preference<br>
+													    If you put -f and -t, text have preference<br>
 	 * -e								    encrypt mode
 	 * -d								    decrypt mode
 	 * -b								    use encryptation algorithm before 0.4.5
