@@ -2,7 +2,7 @@
 #Script to install cryptojka by JKA Network
 #Define variables
 name=cryptojka
-version=0.4.12
+version=0.5.0
 dep=0
 #Check dependences
 echo "Check make dependences"
@@ -24,6 +24,12 @@ else
 	echo "wget is not installed"
 	dep=1
 fi
+if [ -x /usr/bin/gcc ];then
+	echo "gcc is installed"
+else
+	echo "gcc is not installed"
+  dep=1
+fi
 if [ $dep -eq 1 ];then
 	echo "Some make dependences are not installed, exiting"
 	exit
@@ -34,9 +40,9 @@ if [ -f $name-$version.tbz2 ];then
 else
 	wget https://gitlab.com/JKANetwork/cryptoJKA/raw/master/last-version/$name-$version.tbz2
 	if [ $? -ne 0 ];then
-		wget https://github.com/JoseluCross/cryptoJKA/raw/master/last-version/cryptojka-0.4.12.tbz2
+		wget https://github.com/JoseluCross/cryptoJKA/raw/master/last-version/$name-$version.tbz2
 		if [ $? -ne 0 ];then
-			wget http://mirror.jkanetwork.com/Software/cryptoJKA/last-version/cryptojka-0.4.12.tbz2
+			wget http://mirror.jkanetwork.com/Software/cryptoJKA/last-version/$name-$version.tbz2
 		else
 			echo "The mirrors can't download the package, exiting"
 			exit
@@ -56,6 +62,7 @@ cp $name ../package/usr/bin/
 cp i18n/es.mo ../package/usr/share/$name/i18n/es/LC_MESSAGES/$name.mo
 cd ..
 #Instalation
-echo "The package will be put in /usr directory, its need root privileges"
+echo "The package will be put in /usr directory, it's need root privileges"
 sudo cp -r package/* /
 rm -r package $name-$version
+

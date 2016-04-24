@@ -1,5 +1,6 @@
 #include "data.h"
-
+//Prototypes
+int randomBet(int,int);
 
 /*
  *Title: showFile
@@ -50,12 +51,12 @@ void helpbox(){
 void rangen(int tam, char name[]){
   FILE *out_text;
 
-	out_text = fopen(name, "a");
-	int p;//Generated num
-	int m;//Relative position
-	for(m=0;m<tam;m++){
-		p=(rand() % 95)+32; //p is between 32 and 126
-		fputc(p, out_text);
-	}
-	fclose(out_text);
+  out_text = fopen(name, "a");
+  int p;//Generated num
+  int i;//Relative position
+  for(i=0;i<tam;i++){
+	p=randomBet(32,126); //In functions.c
+	fputc(p, out_text);
+  }
+  fclose(out_text);
 }

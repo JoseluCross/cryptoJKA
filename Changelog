@@ -1,3 +1,10 @@
+0.5.0
+
+The spaces is change randomly for a point, a dash, a underscore, a tilde or a space
+The spanish translations are been improved
+[Developers] The randomBet functions has been added to generated numbers between two numbers.
+[Developers] The functions.c has been included
+
 0.4.12
 
 Hotfix: repair errors in programin in before version
@@ -21,7 +28,7 @@ Bugfix: an extra character in desencryptation has been removed
 0.4.7
 
 Correct some text in the program
-	
+
 0.4.6
 
 Permit use the flag -b to use de/encryption algorithm in before versions (before 0.4.5)
